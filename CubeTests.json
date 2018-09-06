@@ -1,0 +1,25 @@
+{
+    "TestSetName":"CubeA vs. CubeB",
+    "TestSetSoftFailTreshold":0.5,
+    "SideA_Parameters":["[Date].[Date].&[20171112]"],
+    "SideB_Parameters":["[Date].[Date].&[20171112]"],
+    "Tests":[
+        {   "SideA_Type":"SSAS", 
+            "SideA_ConnStr":"DataSource=CubeserverA; Catalog=Database; Provider=MSOLAP; Cube=Cube",
+            "SideA_Query":"SELECT ([Measures].[Turnover],[Brand].[Brand].[Gala Bingo]) on 0 from [Flash Cube] where ({0})",
+            "SideB_Type":"SSAS", 
+            "SideB_ConnStr":"DataSource=CubeserverB; Catalog=Database; Provider=MSOLAP; Cube=Flash Cube",
+            "SideB_Query":"SELECT ([Measures].[Turnover],[Brand].[Brand].[Gala Bingo]) on 0 from [Flash Cube] where ({0})"
+        },
+
+
+        {   "SideA_Type":"SSAS", 
+            "SideA_ConnStr":"DataSource=CubeserverA; Catalog=Database; Provider=MSOLAP; Cube=Cube",
+            "SideA_Query":"SELECT ([Measures].[Turnover],[Brand].[Brand].[MyBrand]) on 0 from [Cube] where ({0})",
+            "SideB_Type":"SSAS", 
+            "SideB_ConnStr":"DataSource=CubeserverA; Catalog=Database; Provider=MSOLAP; Cube=Cube",
+            "SideB_Query":"SELECT ([Measures].[Turnover],[Brand].[Brand].[MyBrand]) on 0 from [Cube] where ({0})"
+        }
+    ]
+}
+
